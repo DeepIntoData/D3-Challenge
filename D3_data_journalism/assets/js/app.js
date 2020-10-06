@@ -98,7 +98,7 @@ d3.csv("assets/data/data.csv").then(function(Data, err) {
     .attr("opacity", ".5");
 
     //append text to circles
-    chartGroup.append("g")
+  chartGroup.append("g")
     .selectAll('text')
     .data(Data)
     .enter()
