@@ -91,9 +91,9 @@ d3.csv("assets/data/data.csv").then(function(Data, err) {
     .data(Data)
     .enter()
     .append("circle")
-    .attr("cx", d => xLinearScale(d[chosenXAxis]))
+    .attr("cx", d => xLinearScale(d.age))
     .attr("cy", d => yLinearScale(d.smokes))
-    .attr("r", 12)
+    .attr("r", 15)
     .attr("fill", "skyblue")
     .attr("opacity", ".5");
 
@@ -107,9 +107,8 @@ d3.csv("assets/data/data.csv").then(function(Data, err) {
     .attr("x",d=>xLinearScale(d.age))
     .attr("y",d=>yLinearScale(d.smokes))
     .classed(".stateText", true)
-    .attr("font-family", "sans-serif")
     .attr("text-anchor", "middle")
-    .attr("fill", "white")
+    .attr("fill", "black")
     .attr("font-size", "10px")
     .style("font-weight", "bold")
     .attr("alignment-baseline", "central");
