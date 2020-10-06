@@ -93,10 +93,27 @@ d3.csv("assets/data/data.csv").then(function(Data, err) {
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d.smokes))
-    .attr("r", 15)
+    .attr("r", 12)
     .attr("fill", "skyblue")
     .attr("opacity", ".5");
 
+    //append text to circles
+    chartGroup.append("g")
+    .selectAll('text')
+    .data(Data)
+    .enter()
+    .append("text")
+    .text(d=>d.abbr)
+    .attr("x",d=>xLinearScale(d.age))
+    .attr("y",d=>yLinearScale(d.smokes))
+    .classed(".stateText", true)
+    .attr("font-family", "sans-serif")
+    .attr("text-anchor", "middle")
+    .attr("fill", "white")
+    .attr("font-size", "10px")
+    .style("font-weight", "bold")
+    .attr("alignment-baseline", "central");
+    
 }).catch(function(error) {
   console.log(error);
 });
